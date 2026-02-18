@@ -1,0 +1,16 @@
+#dataset
+data/
+
+#checkpoints
+*.pt
+*.pth
+*.ckpt
+
+#pycache
+__pycache__/
+*.pyc
+
+#jupyter
+.ipynb_checkpoints
+
+
