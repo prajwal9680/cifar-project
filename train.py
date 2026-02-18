@@ -90,20 +90,21 @@ def main():
                 f"train_accuracy {train_accuracy} |"
                 f"val_loss {val_loss} |"
                 f"val_accuracy {val_accuracy} |")
-
-            
-
-        
-
-
-
-            
-
     
+    from evaluate import evaluate_model, compute_confusion_matrix, compute_per_class_accuracy, plot_confusion_matrix
 
-    
+    class_names = train_dataset.classes
+    preds, labels = evaluate_model(model, test_dataloader, device)
 
-    
+    conf_matrix = compute_confusion_matrix(preds, labels)
+    per_class_acc = compute_per_class_accuracy(conf_matrix)
+
+    print("Per class accuracy")
+    for i, acc in enumerate(per_class_acc):
+        print(f"{class_name[i] } : {acc : .4f}")
+
+    plot_confusion_matrix(conf_matrix, class_names)
+
 
 if __name__ == "__main__":
     main()
