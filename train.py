@@ -38,7 +38,7 @@ def main():
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(model.parameters(), momentum = 0.9, lr = 0.01, weight_decay = 5e-4)
 
-    epochs = 15
+    epochs = 10
 
     for epoch in range(epochs):
         

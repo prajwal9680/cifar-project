@@ -29,7 +29,7 @@ def compute_per_class_accuracy(conf_matrix):
 
 def plot_confusion_matrix(confusion_matrix, class_names):
     plt.figure(figsize = (8, 6))
-    sns.heatmap(confusion_matrix, annot = False, cmap = "Blues", xticklabel = class_names, yticklabel = class_names)
+    sns.heatmap(confusion_matrix, annot = False, cmap = "Blues", xticklabels = class_names, yticklabels = class_names)
 
     plt.xlabel("predicted")
     plt.ylabel("true")
