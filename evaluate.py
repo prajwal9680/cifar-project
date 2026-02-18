@@ -19,7 +19,7 @@ def evaluate_model(model, dataloader, device):
         all_preds.extend(preds.cpu().numpy())
         all_labels.extend(labels.cpu().numpy())
 
-        return np.array(all_preds), np.array(all_labels)
+    return np.array(all_preds), np.array(all_labels)
 
 def compute_confusion_matrix(preds, labels):
     return confusion_matrix (labels, preds)
@@ -29,7 +29,7 @@ def compute_per_class_accuracy(conf_matrix):
 
 def plot_confusion_matrix(confusion_matrix, class_names):
     plt.figure(figsize = (8, 6))
-    sns.heatmap(confusion_matrix, annot = False, cmap = "Blues", xticklabel = class_names, yticklabel = class_name)
+    sns.heatmap(confusion_matrix, annot = False, cmap = "Blues", xticklabel = class_names, yticklabel = class_names)
 
     plt.xlabel("predicted")
     plt.ylabel("true")
