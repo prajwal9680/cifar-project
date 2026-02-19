@@ -35,7 +35,7 @@ def main():
 
     
 
-    epochs = 10
+    epochs = 50
 
     model = BaselineCNN().to(device)
     criterion = nn.CrossEntropyLoss()
