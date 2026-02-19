@@ -1,0 +1,18 @@
+{
+  "operator1": {
+    "password": "op123",
+    "role": "Operator"
+  },
+  "operator2": {
+    "password": "op123",
+    "role": "Operator"
+  },
+  "supervisor1": {
+    "password": "sv123",
+    "role": "Supervisor"
+  },
+  "manager1": {
+    "password": "mg123",
+    "role": "Manager"
+  }
+}
