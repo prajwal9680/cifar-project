@@ -21,10 +21,12 @@ def main():
     set_seed(42)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"device used is {device}")
-    transform = transforms.ToTensor()
 
-    train_dataset = torchvision.datasets.CIFAR10(root = "./data", train = True, download = True, transform = transform)
-    test_dataset = torchvision.datasets.CIFAR10(root = './data', download = True, train = False, transform = transform )
+    train_transform = transforms.Compose([transforms.RandomCrop(32, padding = 4), transforms.ToTensor()])
+    test_transform = transforms.ToTensor()
+
+    train_dataset = torchvision.datasets.CIFAR10(root = "./data", train = True, download = True, transform = train_transform)
+    test_dataset = torchvision.datasets.CIFAR10(root = './data', download = True, train = False, transform =test_transform )
 
     batch_size = 128
     train_loader = DataLoader(train_dataset, shuffle = True, pin_memory = torch.cuda.is_available(), batch_size = batch_size, num_workers = 2)
