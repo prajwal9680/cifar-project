@@ -35,14 +35,16 @@ def main():
 
     
 
+    epochs = 10
 
     model = BaselineCNN().to(device)
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(model.parameters(), momentum = 0.9, lr = 0.01, weight_decay = 5e-4)
-
-    epochs = 10
+    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max = epochs)
+    
 
     for epoch in range(epochs):
+        current_lr = optimizer.param_groups[0]['lr']
         
         model.train()
 
@@ -88,10 +90,13 @@ def main():
             val_loss = val_loss / val_total
             val_accuracy = val_correct / val_total
         print(f"at [{epoch + 1}/{epochs}] |"
-                f"train_loss {train_loss}|"
-                f"train_accuracy {train_accuracy} |"
-                f"val_loss {val_loss} |"
-                f"val_accuracy {val_accuracy} |")
+                f"Learning_rate {current_lr:.4f}|"
+                f"train_loss {train_loss:.4f}|"
+                f"train_accuracy {train_accuracy:.4f} |"
+                f"val_loss {val_loss:.4f} |"
+                f"val_accuracy {val_accuracy:.4f} |")
+
+        scheduler.step()
     
     from evaluate import evaluate_model, compute_confusion_matrix, compute_per_class_accuracy, plot_confusion_matrix
 
