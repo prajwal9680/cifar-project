@@ -1,0 +1,28 @@
+# Model weights (too large for GitHub - 128MB+)
+*.pth
+*.pt
+*.bin
+
+# Datasets
+data/
+*.tar.gz
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+
+# Leftover AI task/report files
+tasks.json
+users.json
+wages.json
+daily_report.txt
+weekly_report.txt
+summary_report.txt
+
+# Misc
+desktop.ini
+.vscode/
+*~
